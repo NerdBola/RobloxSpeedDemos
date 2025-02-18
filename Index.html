@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Demos Archive de Roblox</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #121212;
+            color: white;
+        }
+        h1 {
+            color: #ffcc00;
+        }
+        a {
+            color: #ffcc00;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .form-container {
+            margin-top: 20px;
+        }
+        input[type="text"], input[type="password"], input[type="email"] {
+            padding: 8px;
+            margin: 10px;
+            width: 200px;
+        }
+        input[type="submit"] {
+            background-color: #ffcc00;
+            color: black;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #e6b800;
+        }
+        .toggle-container {
+            margin-top: 30px;
+        }
+        .toggle-container a {
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        .toggle-container a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bem-vindo ao Speed Demos Archive de Roblox!</h1>
+    <p>O lugar para armazenar e compartilhar speedruns de Roblox.</p>
+    <p><a href="file:///C:/Users/FALANovo/Desktop/code/RobloxSPEEDDEMOS%20Website/Ranking.html">Ver Rankings</a></p>
+
+    <!-- Formulário de Cadastro -->
+    <div class="form-container" id="signup-form">
+        <h2>Cadastre-se para Enviar Speedruns</h2>
+        <form action="http://localhost:3000/cadastrar" method="POST">
+            <label for="username">Nome de Usuário:</label><br>
+            <input type="text" id="username" name="username" required><br><br>
+
+            <label for="email">E-mail:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="password">Senha:</label><br>
+            <input type="password" id="password" name="password" required><br><br>
+
+            <input type="submit" value="Cadastrar">
+        </form>
+    </div>
+
+    <!-- Formulário de Login -->
+    <div class="form-container" id="login-form" style="display: none;">
+        <h2>Faça Login</h2>
+        <form action="http://localhost:3000/login" method="POST">
+            <label for="login-username">Nome de Usuário:</label><br>
+            <input type="text" id="login-username" name="username" required><br><br>
+
+            <label for="login-password">Senha:</label><br>
+            <input type="password" id="login-password" name="password" required><br><br>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    <div class="toggle-container">
+        <p id="toggle-text">Já tem uma conta? <a href="#" onclick="toggleForms()">Faça login</a></p>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const signupForm = document.getElementById('signup-form');
+            const loginForm = document.getElementById('login-form');
+            const toggleText = document.getElementById('toggle-text');
+
+            if (signupForm.style.display === "none") {
+                signupForm.style.display = "block";
+                loginForm.style.display = "none";
+                toggleText.innerHTML = 'Já tem uma conta? <a href="#" onclick="toggleForms()">Faça login</a>';
+            } else {
+                signupForm.style.display = "none";
+                loginForm.style.display = "block";
+                toggleText.innerHTML = 'Ainda não tem uma conta? <a href="#" onclick="toggleForms()">Cadastre-se</a>';
+            }
+        }
+    </script>
+</body>
+</html>
